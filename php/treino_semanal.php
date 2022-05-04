@@ -20,11 +20,13 @@
                 while ($value = mysqli_fetch_assoc($query_result)) { 
                     $atividade_atual = $value["name"];
                     ?>
-                    <a class="btn-remove-tarefa" href="<?php echo $_SERVER["PHP_SELF"] . "?id=" . $value["id"] . "&" . "acao=remover" ?>">
-                        <button aria-label="Remover" class="btn btn-lg btn-danger" type="button"></button>
-                    </a>
                     <?php
-                    echo "<li><h4>$atividade_atual</h4></li>";
+                    echo "<li><h3>$atividade_atual</h3></li>";
+                    ?>
+                    <a class="btn-remove-tarefa" href="<?php echo $_SERVER["PHP_SELF"] . "?id=" . $value["id"] . "&" . "acao=remover" ?>">
+                        <button aria-label="Remover" class="btn btn-lg btn-danger" type="button">Remover</button>
+                    </a>
+                    <?php   
                 }
             }
 
@@ -49,11 +51,13 @@
                 while ($value = mysqli_fetch_assoc($query_result)) { 
                     $atividade_atual = $value["name"];
                     ?>
+                    <?php
+                    echo "<li><h3>$atividade_atual</h3></li>";
+                    ?>
                     <a class="btn-remove-tarefa" href="<?php echo $_SERVER["PHP_SELF"] . "?id=" . $value["id"] . "&" . "acao=remover" ?>">
-                        <button aria-label="Remover" class="btn btn-lg btn-danger" type="button"></button>
+                        <button aria-label="Remover" class="btn btn-lg btn-danger" type="button">Remover</button>
                     </a>
                     <?php
-                    echo "<li><h4>$atividade_atual</h4></li>";
                 }
             }
             disconnect_database($conn);            
@@ -76,11 +80,13 @@
                 while ($value = mysqli_fetch_assoc($query_result)) { 
                     $atividade_atual = $value["name"];
                     ?>
+                    <?php
+                    echo "<li><h3>$atividade_atual</h3></li>";
+                    ?>
                     <a class="btn-remove-tarefa" href="<?php echo $_SERVER["PHP_SELF"] . "?id=" . $value["id"] . "&" . "acao=remover" ?>">
-                        <button aria-label="Remover" class="btn btn-lg btn-danger" type="button"></button>
+                        <button aria-label="Remover" class="btn btn-lg btn-danger" type="button">Remover</button>
                     </a>
                     <?php
-                    echo "<li><h4>$atividade_atual</h4></li>";
                 }
             }
             disconnect_database($conn);        
@@ -103,11 +109,13 @@
                 while ($value = mysqli_fetch_assoc($query_result)) { 
                     $atividade_atual = $value["name"];
                     ?>
+                    <?php
+                    echo "<li><h3>$atividade_atual</h3></li>";
+                    ?>
                     <a class="btn-remove-tarefa" href="<?php echo $_SERVER["PHP_SELF"] . "?id=" . $value["id"] . "&" . "acao=remover" ?>">
-                        <button aria-label="Remover" class="btn btn-lg btn-danger" type="button"></button>
+                        <button aria-label="Remover" class="btn btn-lg btn-danger" type="button">Remover</button>
                     </a>
                     <?php
-                    echo "<li><h4>$atividade_atual</h4></li>";
                 }
             }
             disconnect_database($conn);
@@ -129,11 +137,13 @@
                 while ($value = mysqli_fetch_assoc($query_result)) { 
                     $atividade_atual = $value["name"];
                     ?>
+                    <?php
+                    echo "<li><h3>$atividade_atual</h3></li>";
+                    ?>
                     <a class="btn-remove-tarefa" href="<?php echo $_SERVER["PHP_SELF"] . "?id=" . $value["id"] . "&" . "acao=remover" ?>">
-                        <button aria-label="Remover" class="btn btn-lg btn-danger" type="button"></button>
+                        <button aria-label="Remover" class="btn btn-lg btn-danger" type="button">Remover</button>
                     </a>
                     <?php
-                    echo "<li><h4>$atividade_atual</h4></li>";
                 }
             }
             disconnect_database($conn);
@@ -142,3 +152,19 @@
     </ul>
 
 </div>
+<style>
+.segunda li,
+.terca li,
+.quarta li,
+.quinta li,
+.sexta li{
+  background-color: #f6f6f6;
+  color: #0d0d0d;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  list-style-type: none;
+  border-radius: 10px;
+}
+</style>

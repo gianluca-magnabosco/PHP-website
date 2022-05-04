@@ -15,31 +15,11 @@
   $conn = connect_database();
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["name"]) && isset($_POST["cpf"]) && isset($_POST["email"]) && isset($_POST["password"]) && !empty($_POST["name"]) && !empty($_POST["cpf"]) && !empty($_POST["email"]) && !empty($_POST["password"])) {
+    if (isset($_POST["password"]) && !empty($_POST["password"])) {
       
-
-      $name = mysqli_real_escape_string($conn, sanitize($_POST["name"]));
-      $cpf = mysqli_real_escape_string($conn, sanitize($_POST["cpf"]));
-      $email = mysqli_real_escape_string($conn, sanitize($_POST["email"]));
       $password = mysqli_real_escape_string($conn, sanitize($_POST["password"]));
       $confirm_password = mysqli_real_escape_string($conn, sanitize($_POST["confirm_password"]));
 
-
-      if (!validaCPF($cpf)) {
-        $error_msg = "CPF inválido.";
-        $error = true;
-      } else {
-        $sql = "SELECT * FROM $table_users WHERE email = '$email' AND id != '$user_id';";
-        $result = mysqli_query($conn, $sql);
-        $result = mysqli_fetch_row($result);
-        if (!empty($result)) {
-          $error_msg = "Esse e-mail já está cadastrado!";
-          $error = true;
-        } else {
-          if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error_msg = "Email inválido.";
-            $error = true;
-          } else {
               $user_id = $_SESSION["user_id"];
               $password = md5($password);
 
@@ -51,12 +31,10 @@
               if ($password == $encrypted_password) {
                 date_default_timezone_set('America/Sao_Paulo');
                 $timestamp = date('m/d/Y h:i:s a', time());
-                
-                $cpf = preg_replace( '/[^0-9]/is', '', $cpf);
 
                 $confirm_password = md5($confirm_password);
 
-                $sql = "UPDATE $table_users SET name = '$name', cpf = '$cpf', email = '$email', password = '$confirm_password', last_changed = '$timestamp' WHERE id = '$user_id';"; 
+                $sql = "UPDATE $table_users SET password = '$confirm_password', last_changed = '$timestamp' WHERE id = '$user_id';"; 
                 
                 if(mysqli_query($conn, $sql)) {
                   $success = true;
@@ -68,9 +46,6 @@
                 $error_msg = "Senha incorreta!";
                 $error = true;
               }
-            } 
-          }
-        }
 
     } else {
         $error_msg = "Preencha todos os campos!";
@@ -115,37 +90,37 @@
         <div class="perfil">
           <h1>Bem-vindo! <?= ucwords(strtolower($_SESSION["user_name"])); ?>, estes são seus dados:</h1></br>
             <form id="formulario" action="<?= $_SERVER["PHP_SELF"]; ?>" method="post">
-              <input type="text" class="text" required id="nome" name="name" value="<?= ucwords(strtolower($result['name'])); ?>"></br></br>
+              <input type="text" class="text" id="nome" name="name" value="<?= ucwords(strtolower($result['name'])); ?>" disabled></br></br>
               <div id="erro-nome">
 
               </div>
     
-              <input type="text" class="text" required id="cpf" name="cpf" value="<?= $cpf_novo; ?>"></br></br>
+              <input type="text" class="text" id="cpf" name="cpf" value="<?= $cpf_novo; ?>" disabled></br></br>
               <div id="erro-cpf">
 
               </div>
     
-              <input type="email" class="text" required id="email" name="email" value="<?= strtolower($result['email']); ?>"></br></br>
+              <input type="email" class="text" id="email" name="email" value="<?= strtolower($result['email']); ?>" disabled></br></br>
               <div id="erro-email">
 
               </div>
     
-              <input type="password" class="text" required id="password" name="password" placeholder="Insira sua senha atual"></br></br>
+              <input type="password" class="text" required id="password" name="password" placeholder="Insira sua senha atual" ></br></br>
               <div id="erro-password">
 
               </div>
 
-              <input type="password" class="text" required id="confirm_password" name="confirm_password" placeholder="Insira a senha desejada, ou confirme sua senha"></br></br>
+              <input type="password" class="text" required id="confirm_password" name="confirm_password" placeholder="Insira a senha desejada, ou confirme sua senha" ></br></br>
               <div id="erro-confirm_password">
 
               </div>
 
               <?php if ($success): ?>
-                <h5 style="color:lightgreen;">Registro alterado com sucesso!</h5>
+                <h3 style="color:lightgreen;">Senha alterada com sucesso!</h3>
               <?php endif; ?>
 
               <?php if ($error): ?>
-                <h5 style="color:red;"><?= $error_msg; ?></h5>
+                <h3 style="color:red;"><?= $error_msg; ?></h3>
               <?php endif; ?>
 
               <input type="submit" class="fadeIn fourth" value="Salvar alterações">
@@ -161,6 +136,5 @@
         }
       ?>
       <?php endif; ?>
-
   </body>
 </html>

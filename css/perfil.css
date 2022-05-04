@@ -91,6 +91,28 @@ input[type=password]:placeholder {
   color: #cccccc;
 }
 
+input[type=submit]{
+  background-color: #4C8EF1;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: Roboto;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=submit]:hover{
+  background-color: #2CC961;
+}
+
+input[type=submit]:active {
+  background-color: #2CC961;
+}
+
 *:focus {
     outline: none;
 }

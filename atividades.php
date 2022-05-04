@@ -110,17 +110,9 @@
     
         </div>
 
-        <?php if ($success): ?>
-          <h3 style="color:lightgreen;"><?= $current ?> com sucesso!</h3>
-        <?php endif; ?>
-
-
-        <?php if ($error): ?>
-            <h3 style="color:red;"><?= $error_msg; ?></h3>
-        <?php endif; ?>
-
 
             <div class="atividades">
+                
                 <h1 class="texto">Adicione seu treino:</h1>
                 <div class="atividades">
 
@@ -138,6 +130,14 @@
                 </div>
             </div>
         </form>
+        <?php if ($success): ?>
+          <h3 style="color:lightgreen;"><?= $current ?> com sucesso!</h3>
+        <?php endif; ?>
+
+
+        <?php if ($error): ?>
+            <h3 style="color:red;"><?= $error_msg; ?></h3>
+        <?php endif; ?>
     </div>
 
 

@@ -73,7 +73,6 @@ input[type=text]:placeholder {
 }
 
 
-
 *:focus {
     outline: none;
 }
@@ -202,8 +201,6 @@ input[type=button]:active, input[type=submit]:active {
   padding-left: 4%;
   padding-top: 1.5%;
   padding-bottom: 1.5%;
-  border: 2px solid #35FF7A;
-  border-radius: 12px;
   margin-left: 8px;
   margin-right: 8px;
   text-align: center;

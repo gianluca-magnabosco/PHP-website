@@ -52,14 +52,6 @@
             }
           </style>
 
-          <?php if ($error): ?>
-            <h3 style="color:red;"><?= $error_msg; ?></h3>
-          <?php endif; ?>
-
-          <?php if ($success): ?>
-            <h3 style="color:lightgreen;">Treino removido com sucesso!</h3>
-          <?php endif; ?>
-
           <h1 class= "texto">Já treinou hoje <?= ucwords(strtolower($_SESSION["user_name"])) ?>?</h1>
           <a class="checkin" href="atividades.php">
             <input id="botao" type="submit" class="fadeIn fourth" value="Fazer Check-in!">
@@ -70,7 +62,7 @@
             <input id="botao" type="submit" class="fadeIn fourth" value="Fazer Login">
           </a>
         <?php endif; ?>
-      </div>
+        </div>
 
 
       <?php if (!$login): ?>
@@ -97,6 +89,12 @@
         <?php require "php/treino_semanal.php"; ?>
       <?php endif; ?>
 
+      <?php if ($error): ?>
+        <h3 style="color:red;"><?= $error_msg; ?></h3>
+      <?php endif; ?>
 
+      <?php if ($success): ?>
+        <h3 style="color:lightgreen;">Treino removido com sucesso!</h3>
+      <?php endif; ?>
   </body>
 </html>

@@ -23,7 +23,7 @@
     } else {
         echo "<br>Error changing database: " . mysqli_error($conn);
     }
-
+    
     // sql to create table
     $sql = "CREATE TABLE $table_users (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
