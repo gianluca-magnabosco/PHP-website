@@ -1,0 +1,159 @@
+
+html {
+  background-color: #F3F5FB;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  height: 100vh;
+  align-items: center;
+}
+
+a {
+  color: #0F296D;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  display:inline-block;
+  text-decoration: none;
+}
+
+
+h1{
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  display:inline-block;
+  color: #393D54;
+padding: 2%;
+}
+
+input[type=text] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #35FF7A ;
+}
+
+input[type=text]:placeholder {
+  color: #cccccc;
+}
+
+input[type=email] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=email]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #35FF7A ;
+}
+
+input[type=email]:placeholder {
+  color: #cccccc;
+}
+
+input[type=password] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=password]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #35FF7A ;
+}
+
+input[type=password]:placeholder {
+  color: #cccccc;
+}
+
+*:focus {
+    outline: none;
+}
+
+#menu{
+margin-left: 10%;
+}
+#menu ul {
+    background-color:white;
+    border-radius: 20px;
+    color: white;
+    width: 100%;
+    position: fixed;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 0.2em grey;
+}
+
+
+.main ul li {
+    width: fit-content;
+    block-size: fit-content;
+    list-style-type: none;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    text-align: right;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin: auto;
+    padding-left: 5%;
+    margin-left: 0;
+    margin-right: 0;
+    display: inline-block;
+}
+
+
+#user{
+  margin-left: 2%;
+  width: fit-content;
+  block-size: fit-content;
+}
+
+.icon-webfit{
+  align-items: left;
+
+}
+
+
+.perfil{
+  padding: 3%;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px 15px 15px 15px;
+  margin-top: 5ch;
+  margin-bottom: 3ch;
+  block-size: fit-content;
+  border: 3px #DCDDE1 solid;
+  margin: 4%;
+}
+
+#botao{
+  margin-left: 60%;
+}
+
