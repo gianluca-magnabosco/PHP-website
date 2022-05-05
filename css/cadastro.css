@@ -11,7 +11,7 @@ body {
 
 a {
   color: #92badd;
-  display:inline-block;
+  display: inline-block;
   text-decoration: none;
   font-weight: 400;
 }
@@ -21,7 +21,7 @@ h2 {
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
-  display:inline-block;
+  display: inline-block;
   color: #999999;
 }
 
@@ -40,7 +40,7 @@ h2 {
   text-align: center;
 }
 
-input[type=button], input[type=submit], input[type=reset]  {
+input[type=button], input[type=submit], input[type=reset] {
   background-color: #4C8EF1;
   border: none;
   color: white;
@@ -54,10 +54,9 @@ input[type=button], input[type=submit], input[type=reset]  {
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 40px 20px;
   margin-top: 5%;
-
 }
 
-input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
   background-color: #2CC961;
 }
 
@@ -118,7 +117,7 @@ input[type=text]:placeholder {
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 

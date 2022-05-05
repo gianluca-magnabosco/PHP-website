@@ -14,8 +14,8 @@
     $sql = "DELETE FROM $table_atividades WHERE id=" . $id;
     
     if (!mysqli_query($conn, $sql)) { 
-        $error_msg = mysqli_error($conn);
-        $error = true;
+      $error_msg = mysqli_error($conn);
+      $error = true;
     } else {
       $success = true;
     }
@@ -23,6 +23,7 @@
     disconnect_database($conn);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -40,6 +41,7 @@
   </head>
 
   <body>
+
       <?php require "php/menu.php"; ?>
 
       <div class="check-in">
@@ -62,32 +64,32 @@
             <input id="botao" type="submit" class="fadeIn fourth" value="Fazer Login">
           </a>
         <?php endif; ?>
-        </div>
+      </div>
 
 
       <?php if (!$login): ?>
         <div class="atividades">
           <h1 class= "texto">Atividades disponíveis na WebFit!</h1> <hr>
           <div class="atividades">
-
             <?php include "php/botoes_atividades.php"; ?>
-
           </div>
+
           <?php if (isset($_GET["atividade"])): ?>
             <?php $atividade = $_GET["atividade"]; ?>
-              <?php if ($atividade != "bemvindo"): ?>
-                <img src="img/<?= $atividade;?>.jpg" alt="<?= ucfirst($atividade); ?>" width=100% height=100%>
-              <?php else: ?>
-                <?php include "php/bemvindo.php"; ?>
-              <?php endif; ?>
-
+            <?php if ($atividade != "bemvindo"): ?>
+              <img src="img/<?= $atividade;?>.jpg" alt="<?= ucfirst($atividade); ?>" width=100% height=100%>
             <?php else: ?>
               <?php include "php/bemvindo.php"; ?>
+            <?php endif; ?>
+          <?php else: ?>
+            <?php include "php/bemvindo.php"; ?>
           <?php endif; ?>
+
         </div>
       <?php else: ?>
         <?php require "php/treino_semanal.php"; ?>
       <?php endif; ?>
+
 
       <?php if ($error): ?>
         <h3 style="color:red;"><?= $error_msg; ?></h3>
@@ -96,5 +98,6 @@
       <?php if ($success): ?>
         <h3 style="color:lightgreen;">Treino removido com sucesso!</h3>
       <?php endif; ?>
+      
   </body>
 </html>

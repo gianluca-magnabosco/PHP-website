@@ -6,46 +6,53 @@
 
   if (!$login) {
     header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "./index.php"); 
+    exit();
   }  
-
 
   $error = false;
   $success = false;
 
-  $conn = connect_database();
-
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["password"]) && !empty($_POST["password"])) {
+    if (isset($_POST["password"]) && !empty($_POST["password"]) && isset($_POST["confirm_password"]) && !empty($_POST["confirm_password"])) {
       
       $password = mysqli_real_escape_string($conn, sanitize($_POST["password"]));
       $confirm_password = mysqli_real_escape_string($conn, sanitize($_POST["confirm_password"]));
 
-              $user_id = $_SESSION["user_id"];
-              $password = md5($password);
+      $user_id = $_SESSION["user_id"];
+      $password = md5($password);
 
-              $sql = "SELECT password FROM Users WHERE id = '$user_id'";
-              $resultado = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+      $conn = connect_database();
 
-              $encrypted_password = $resultado["password"];
+      $sql = "SELECT password FROM Users WHERE id = '$user_id'";
+      $resultado = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 
-              if ($password == $encrypted_password) {
-                date_default_timezone_set('America/Sao_Paulo');
-                $timestamp = date('m/d/Y h:i:s a', time());
+      $encrypted_password = $resultado["password"];
 
-                $confirm_password = md5($confirm_password);
+      if ($password == $encrypted_password) {
+        date_default_timezone_set('America/Sao_Paulo');
+        $timestamp = date('m/d/Y h:i:s a', time());
 
-                $sql = "UPDATE $table_users SET password = '$confirm_password', last_changed = '$timestamp' WHERE id = '$user_id';"; 
-                
-                if(mysqli_query($conn, $sql)) {
-                  $success = true;
-                } else { 
-                  $error_msg = mysqli_error($conn);
-                  $error = true;
-                }                
-              } else {
-                $error_msg = "Senha incorreta!";
-                $error = true;
-              }
+        $confirm_password = md5($confirm_password);
+
+        if ($confirm_password == $encrypted_password) {
+          $error_msg = "Nada foi alterado!";
+          $error = true;
+        } else { 
+          $sql = "UPDATE $table_users SET password = '$confirm_password', last_changed = '$timestamp' WHERE id = '$user_id';";
+
+          if(mysqli_query($conn, $sql)) {
+            $success = true;
+          } else { 
+            $error_msg = mysqli_error($conn);
+            $error = true;
+          }                
+        }
+      } else {
+        $error_msg = "Senha incorreta!";
+        $error = true;
+      }
+
+      disconnect_database($conn);
 
     } else {
         $error_msg = "Preencha todos os campos!";
@@ -54,24 +61,29 @@
   }
 
 
+  $conn = connect_database();
+
   $sql = "SELECT id, name, cpf, email, data_registro FROM Users WHERE id = " . $_SESSION["user_id"];
   $result = mysqli_query($conn, $sql);
   $result = mysqli_fetch_assoc($result);
 
   if (isset($result)) {  
     $cpf_novo = $result["cpf"];
-
     $cpf_novo = substr($cpf_novo, 0, 3) . '.' . substr($cpf_novo, 3, 3) . '.' . substr($cpf_novo, 6, 3) . '-' . substr($cpf_novo, 9, 2);
+  } else {
+    $error_msg = mysqli_error($conn);
+    $error = true;
   }
 
   disconnect_database($conn);
 ?>
 
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Perfil</title>
+    <title>Meu perfil</title>
     <link type="text/css" rel="stylesheet" href="css/perfil.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,6 +96,7 @@
   </head>
 
   <body>
+
       <?php require "php/menu.php"; ?>
 
       <?php if(isset($result)): ?>
@@ -115,13 +128,15 @@
 
               </div>
 
-              <?php if ($success): ?>
-                <h3 style="color:lightgreen;">Senha alterada com sucesso!</h3>
-              <?php endif; ?>
 
               <?php if ($error): ?>
                 <h3 style="color:red;"><?= $error_msg; ?></h3>
               <?php endif; ?>
+
+              <?php if ($success): ?>
+                <h3 style="color:lightgreen;">Senha alterada com sucesso!</h3>
+              <?php endif; ?>
+
 
               <input type="submit" class="fadeIn fourth" value="Salvar alterações">
               
@@ -129,11 +144,9 @@
                         
         </div>
         
-
       <?php else:
-        if ($conn) {
-          echo mysqli_error($conn);
-        }
+        header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "./index.php"); 
+        exit();
       ?>
       <?php endif; ?>
   </body>

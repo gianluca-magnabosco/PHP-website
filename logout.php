@@ -1,4 +1,11 @@
 <?php 
+    require "php/authenticate.php";
+    
+    if (!$login) {
+        header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "./index.php");
+        exit();
+    }
+
     session_start();
     
     session_unset();
@@ -7,5 +14,5 @@
 
     $login = false;
 
-    header("Location: ". dirname($_SERVER['SCRIPT_NAME']) . "/index.php");
+    header("Location: ". dirname($_SERVER['SCRIPT_NAME']) . "index.php");
 ?>

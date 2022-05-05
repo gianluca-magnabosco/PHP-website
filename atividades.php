@@ -3,7 +3,6 @@
   require "php/database_functions.php";
 
   
-
   if (!$login) {
     header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "./index.php"); 
     exit();
@@ -32,10 +31,9 @@
 
         disconnect_database($conn);
     }
-
-
   } else {     
-    if (isset($_COOKIE["diadasemana"])) {
+    if (isset($_COOKIE["diadasemana"]) && ($_COOKIE["diadasemana"] == "segunda" || $_COOKIE["diadasemana"] == "terca" || $_COOKIE["diadasemana"] == "quarta" || $_COOKIE["diadasemana"] == "quinta" || $_COOKIE["diadasemana"] == "sexta")) {
+
         $dia_da_semana = $_COOKIE["diadasemana"];
         $atividade = $_POST["atividade"];
         $userid = $_SESSION["user_id"];
@@ -56,10 +54,6 @@
     }
   }
 
-
-
-
-
 ?>
 
 
@@ -67,7 +61,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bem-vindo à WebFit!</title>
+    <title>Painel de atividades</title>
     <link type="text/css" rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,44 +72,74 @@
     <link rel="icon" type="image/x-icon" href="img/webfit.png">
   </head>
 
+
   <body>
     <?php require "php/menu.php"; ?>
+
     <div class="atividades">
         <form id="formulario_atividades" method="post" action="<?= $_SERVER["PHP_SELF"]; ?>">
-        <div class="check-in">
-            <h1 class="texto">Selecione o dia da semana:</h1>
-            <div class="atividades">
-                
-                <a class="abotao" id="segunda" href="?diadasemana=segunda">
-                    <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Segunda">
-                </a>
+            <div class="check-in">
+                <h1 class="texto">Selecione o dia da semana:</h1>
+                <div class="atividades">
+                    
+                    <a class="abotao" id="segunda" href="?diadasemana=segunda">
+                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") && (isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "segunda"))): ?>
+                            <div class="selecionado">
+                                <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Segunda">
+                            </div>
+                        <?php else: ?>
+                            <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Segunda">
+                        <?php endif; ?>
+                    </a>
 
-                <a class="abotao" id="terca" href="?diadasemana=terca">
-                    <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Terça">
-                </a>
+                    <a class="abotao" id="terca" href="?diadasemana=terca">
+                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") && (isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "terca"))): ?>
+                            <div class="selecionado">
+                                <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Terça">
+                            </div>
+                        <?php else: ?>
+                            <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Terça">
+                        <?php endif; ?>
+                    </a>
 
-                <a class="abotao" id="quarta" href="?diadasemana=quarta">
-                    <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Quarta">
-                </a>
-    
-                <a class="abotao" id="quinta" href="?diadasemana=quinta">
-                    <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Quinta">
-                </a>
+                    <a class="abotao" id="quarta" href="?diadasemana=quarta">
+                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") && (isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "quarta"))): ?>
+                            <div class="selecionado">
+                                <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Quarta">
+                            </div>
+                        <?php else: ?>
+                            <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Quarta">
+                        <?php endif; ?>
+                    </a>
+        
+                    <a class="abotao" id="quinta" href="?diadasemana=quinta">
+                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") && (isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "quinta"))): ?>
+                            <div class="selecionado">
+                                <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Quinta">
+                            </div>
+                        <?php else: ?>
+                            <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Quinta">
+                        <?php endif; ?>
+                    </a>
 
-                <a class="abotao" id="sexta" href="?diadasemana=sexta">
-                    <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Sexta">
-                </a>
+                    <a class="abotao" id="sexta" href="?diadasemana=sexta">
+                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") && (isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "sexta"))): ?>
+                            <div class="selecionado">
+                                <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Sexta">
+                            </div>
+                        <?php else: ?>
+                            <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Sexta">
+                        <?php endif; ?>
+                    </a>
 
+                </div>
+        
             </div>
-    
-        </div>
 
 
             <div class="atividades">
-                
                 <h1 class="texto">Adicione seu treino:</h1>
                 <div class="atividades">
-
                     <input class="botao" type="submit" class="fadeIn fourth" name="atividade" value="Spinning">
 
                     <input class="botao" type="submit" class="fadeIn fourth" name="atividade" value="Fit Dance">
@@ -129,20 +153,20 @@
                     <input class="botao" type="submit" class="fadeIn fourth" name="atividade" class="musculacao" value="Musculação">
                 </div>
             </div>
-        </form>
-        <?php if ($success): ?>
-          <h3 style="color:lightgreen;"><?= $current ?> com sucesso!</h3>
-        <?php endif; ?>
 
+        </form>
 
         <?php if ($error): ?>
             <h3 style="color:red;"><?= $error_msg; ?></h3>
         <?php endif; ?>
+
+        <?php if ($success): ?>
+          <h3 style="color:lightgreen;"><?= $current ?> com sucesso!</h3>
+        <?php endif; ?>
+
     </div>
 
-
     <?php require "php/treino_semanal.php"; ?>
-
 
   </body>
 </html>

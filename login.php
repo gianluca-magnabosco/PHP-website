@@ -2,12 +2,15 @@
   require "php/database_functions.php";
   require "php/authenticate.php";
   require "php/sanitize.php";
-
+ 
+  if ($login) {
+    header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "./index.php");
+    exit();
+  }
 
   $error = false;
+
   $email = $password = "";
-
-
 
   if ((!$login) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
     if (isset($_POST["email"]) && isset($_POST["password"]) && !empty($_POST["email"]) && !empty($_POST["password"])) {
@@ -15,14 +18,13 @@
       $conn = connect_database();
 
       $email = mysqli_real_escape_string($conn, sanitize($_POST["email"]));
+      $password = mysqli_real_escape_string($conn, sanitize($_POST["password"]));
 
       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error_msg = "Email inválido.";
         $error = true;
       } else {
-        $password = mysqli_real_escape_string($conn, sanitize($_POST["password"]));
         $password = md5($password);
-
 
         $sql = "SELECT id, name, email, password FROM $table_users WHERE email = '$email';";
         $result = mysqli_query($conn, $sql);
@@ -37,6 +39,8 @@
               $_SESSION["user_email"] = $user_info["email"];
 
               $login = true;
+              header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "./index.php");
+              exit();
             } else {
               $error_msg = "Usuário ou senha incorretos!";
               $error = true;
@@ -51,15 +55,16 @@
           $error = true;
         }
       }
+
+      disconnect_database($conn);
+
     } else {
         $error_msg = "Por favor preencha todos os campos!";
         $error = true;
     }
   }
-  if (isset($conn)) {
-    disconnect_database($conn);
-  }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -80,7 +85,6 @@
   <body>
 
     <div id="formContent">
-
       <div class="icon">
         <a href="index.php">
           <img src="img/webfit.png" alt="Logo Webfit" width=40% height=60%>
@@ -92,13 +96,11 @@
       <form id="login" action="login.php" method="post">
 
         <input type="email" required class="text" id="email" name="email" placeholder="email">
-
         <div id="erro-email">
 
         </div>
         
         <input type="password" required class="text" id="senha" name="password" placeholder="senha">
-
         <div id="erro-senha">
 
         </div>
@@ -106,18 +108,12 @@
         <input type="submit" class="fadeIn fourth" value="Entrar!">
       </form>
 
-      <?php 
-        if ($login) {
-          header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "./index.php");
-          exit();
-        }
-      ?>
 
       <?php if ($error): ?>
         <h5 style="color:red;"><?= $error_msg; ?></h5>
       <?php endif; ?>
 
-
+  
       <div id="formFooter">
         <p>Não tem uma conta?</p>
         <a class="underlineHover" href="cadastro.php">Cadastrar</a>

@@ -12,7 +12,7 @@
   $error = false;
   $success = false;
 
-  $name = $cpf = $endereco = $email = $confirm_email = $password = $confirma_password = "";
+  $name = $cpf = $endereco = $email = $confirm_email = $password = $confirm_password = "";
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["name"]) && isset($_POST["cpf"]) && isset($_POST["endereco"]) && isset($_POST["email"]) && isset($_POST["confirm_email"]) && isset($_POST["password"]) && isset($_POST["confirm_password"]) && !empty($_POST["name"]) && !empty($_POST["cpf"]) && !empty($_POST["endereco"]) && !empty($_POST["email"]) && !empty($_POST["confirm_email"]) && !empty($_POST["password"]) && !empty($_POST["confirm_password"]) ) {
@@ -28,16 +28,15 @@
       $confirm_password = mysqli_real_escape_string($conn, sanitize($_POST["confirm_password"]));
       
 
-
       if (!validaCPF($cpf)) {
         $error_msg = "CPF inválido.";
         $error = true;
       } else {
         if ($email == $confirm_email) {
-  
           $sql = "SELECT * FROM $table_users WHERE email = '$email';";
           $result = mysqli_query($conn, $sql);
           $result = mysqli_fetch_row($result);
+
           if (!empty($result)) {
             $error_msg = "Esse e-mail já está cadastrado!";
             $error = true;
@@ -76,13 +75,12 @@
 
       }
       
+      disconnect_database($conn);
+
     } else {
       $error_msg = "Preencha todos os campos!";
       $error = true;
     }
-  }
-  if (isset($conn)) {
-    disconnect_database($conn);
   }
 ?>
 
@@ -150,7 +148,12 @@
 
         </div>
 
-       
+
+        <?php if ($error): ?>
+          <h5 style="color:red;"><?php echo $error_msg; ?></h5>
+        <?php endif; ?>
+        
+        
         <?php if ($success): ?>
           <h5 style="color:lightgreen;">Usuário criado com sucesso!</h5>
           <p>
@@ -158,13 +161,9 @@
           </p>
         <?php endif; ?>
   
-  
-  
-        <?php if ($error): ?>
-          <h5 style="color:red;"><?php echo $error_msg; ?></h5>
-        <?php endif; ?>
 
         <input type="submit" class="fadeIn fourth" value="Cadastrar!">
+
       </form>
 
 

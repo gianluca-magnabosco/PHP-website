@@ -13,19 +13,19 @@ a {
   color: #0F296D;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  display:inline-block;
+  display: inline-block;
   text-decoration: none;
 }
 
 
-h1{
+h1 {
   text-align: center;
   font-size: 16px;
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
-  display:inline-block;
+  display: inline-block;
   color: #393D54;
-padding: 2%;
+  padding: 2%;
 }
 
 input[type=text] {
@@ -91,7 +91,7 @@ input[type=password]:placeholder {
   color: #cccccc;
 }
 
-input[type=submit]{
+input[type=submit] {
   background-color: #4C8EF1;
   border: none;
   color: white;
@@ -105,7 +105,7 @@ input[type=submit]{
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=submit]:hover{
+input[type=submit]:hover {
   background-color: #2CC961;
 }
 
@@ -114,56 +114,56 @@ input[type=submit]:active {
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
-#menu{
-margin-left: 10%;
+#menu {
+  margin-left: 10%;
 }
+
 #menu ul {
-    background-color:white;
-    border-radius: 20px;
-    color: white;
-    width: 100%;
-    position: fixed;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0 0 0.2em grey;
+  background-color: white;
+  border-radius: 20px;
+  color: white;
+  width: 100%;
+  position: fixed;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 0.2em grey;
 }
 
 
 .main ul li {
-    width: fit-content;
-    block-size: fit-content;
-    list-style-type: none;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    text-decoration: none;
-    text-align: right;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    margin: auto;
-    padding-left: 5%;
-    margin-left: 0;
-    margin-right: 0;
-    display: inline-block;
+  width: fit-content;
+  block-size: fit-content;
+  list-style-type: none;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  text-align: right;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin: auto;
+  padding-left: 5%;
+  margin-left: 0;
+  margin-right: 0;
+  display: inline-block;
 }
 
 
-#user{
+#user {
   margin-left: 2%;
   width: fit-content;
   block-size: fit-content;
 }
 
-.icon-webfit{
+.icon-webfit {
   align-items: left;
-
 }
 
 
-.perfil{
+.perfil {
   padding: 3%;
   align-items: center;
   background-color: white;
@@ -175,7 +175,7 @@ margin-left: 10%;
   margin: 4%;
 }
 
-#botao{
+#botao {
   margin-left: 60%;
 }
 

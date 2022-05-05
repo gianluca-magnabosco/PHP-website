@@ -13,7 +13,7 @@ a {
   color: #0F296D;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  display:inline-block;
+  display: inline-block;
   text-decoration: none;
 }
 
@@ -22,22 +22,21 @@ h2 {
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
-  display:inline-block;
+  display: inline-block;
   color: #999999;
 }
 
-h3{
+h3 {
   text-align: center;
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
-  display:inline-block;
+  display: inline-block;
   color: #393D54;
 
 }
 
 .descricao{
-
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   text-align: justify;
@@ -74,46 +73,44 @@ input[type=text]:placeholder {
 
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 #menu{
-margin-left: 10%;
-
-
+  margin-left: 10%;
 }
+
 #menu ul {
-    background-color:white;
-    border-radius: 20px;
-    color: white;
-    width: 100%;
-    position: fixed;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0 0 0.2em grey;
+  background-color:white;
+  border-radius: 20px;
+  color: white;
+  width: 100%;
+  position: fixed;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 0.2em grey;
 }
 
 
 .main ul li {
-    width: fit-content;
-    block-size: fit-content;
-    list-style-type: none;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    text-decoration: none;
-    text-align: right;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    margin: auto;
-    padding-left: 5%;
-    margin-left: 0;
-    margin-right: 0;
-    display: inline-block;
+  width: fit-content;
+  block-size: fit-content;
+  list-style-type: none;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  text-align: right;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin: auto;
+  padding-left: 5%;
+  margin-left: 0;
+  margin-right: 0;
+  display: inline-block;
 }
 
-
-#user{
+#user {
   margin-left: 2%;
   width: fit-content;
   block-size: fit-content;
@@ -121,10 +118,9 @@ margin-left: 10%;
 
 .icon-webfit{
   align-items: left;
-
 }
 
-input[type=button], input[type=submit], input[type=reset]  {
+input[type=button], input[type=submit], input[type=reset] {
   background-color: #4C8EF1;
   border: none;
   color: white;
@@ -138,7 +134,7 @@ input[type=button], input[type=submit], input[type=reset]  {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
   background-color: #2CC961;
 }
 
@@ -155,7 +151,7 @@ input[type=button]:active, input[type=submit]:active {
   margin-top: 5ch;
   margin-bottom: 3ch;
   margin-left: auto;
- block-size: fit-content;
+  block-size: fit-content;
   border: 3px #DCDDE1 solid;
   margin: 4%;
 }
@@ -167,7 +163,7 @@ input[type=button]:active, input[type=submit]:active {
   border-radius: 15px 15px 15px 15px;
   margin-bottom: 3ch;
   margin-left: auto;
- block-size: fit-content;
+  block-size: fit-content;
   border: 3px #DCDDE1 solid;
   margin: 4%;
 }
@@ -176,7 +172,7 @@ input[type=button]:active, input[type=submit]:active {
   margin-left: 60%;
 }
 
-.treino{
+.treino {
   padding: 15px 15px 15px 15px;
   align-items: center;
   background-color: white;
@@ -187,16 +183,15 @@ input[type=button]:active, input[type=submit]:active {
   block-size: fit-content;
   border: 3px #DCDDE1 solid;
   margin: 4%;
+}
 
-  }
 
-
-#semana{
+#semana {
   display: flex;
   align-items: center;
 }
 
-.segunda, .terca, .quarta, .quinta, .sexta{
+.segunda, .terca, .quarta, .quinta, .sexta {
   padding-right: 4%;
   padding-left: 4%;
   padding-top: 1.5%;
@@ -212,7 +207,7 @@ input[type=button]:active, input[type=submit]:active {
   width: 10px;
 }
 
-h2{
+h2 {
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   text-align: justify;
@@ -226,6 +221,22 @@ h2{
 }
 
 .bemvindo {
-    margin-left: 18%;
-    margin-right: 18%;
+  margin-left: 18%;
+  margin-right: 18%;
 }
+
+
+.selecionado {
+  padding: 15px 40px 15px 15px;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px 15px 15px 15px;
+  display: flex;
+  margin-top: 5ch;
+  margin-bottom: 3ch;
+  margin-left: auto;
+  block-size: fit-content;
+  border: 6px #DCDDE1 solid;
+  margin: 4%;
+}
+

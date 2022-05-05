@@ -9,7 +9,7 @@ O WebFit foi pensado inicialmente para a matéria de Análise e Projeto de Siste
 | ------------- |:-------------:|
 | CSS   | Contém todos os arquivos css do site |
 | Img      | Contém todas as imagens     |  
-| Js | Contén todos os arquivos JavaScript    |   
+| Js | Contém todos os arquivos JavaScript    |   
 | Php | Possui alguns arquivos php que não são os principais, apenas conexões com o banco e arquivos auxiliares  | 
 | Arquivos soltos | Principais arquivos do site  | 
 
@@ -17,9 +17,9 @@ O WebFit foi pensado inicialmente para a matéria de Análise e Projeto de Siste
 
 * Antes de tudo, é necessário fazer um cadastro com nome, CPF, endereço, email e senha.
 
-* Após o cadastro é deve-se fazer o login.
+* Após o cadastro deve-se fazer o login.
 
-* Somente assim é possível ter acesso a pagina de usuário, que é onde pode-se adicionar as atividades da semana.
+* Somente assim é possível ter acesso ao painel de atividades, que é onde pode-se adicionar as atividades da semana.
 
 * As atividades são armazenadas no banco, e é possível removê-las.
 
@@ -33,9 +33,13 @@ O WebFit foi pensado inicialmente para a matéria de Análise e Projeto de Siste
 
 * É conferido o CPF para ser válido
 
-* As senhas não podem ser visualizadas por segurança
+* As senhas são armazenadas com criptografia md5 e não podem ser visualizadas por motivos de segurança
 
-* O relacionamento do banco de dados está entre usuários e atividades semanais
+* Existem duas tabelas no banco de dados e elas se relacionam (Users, Atividades)
+
+* Os arrays superglobais $_SERVER, $_COOKIE, $_SESSION, $_GET, $_POST foram todos utilizados na confecção do site
+
+* No início de cada página é realizada uma verificação de login do usuário, contribuindo para a segurança do site
 
 ### Imagem que mostra as atividades semanais de um usuário
 ![image](https://user-images.githubusercontent.com/49680911/166856015-9ff2c19b-f179-4e9d-af5b-e0be064634ef.png)
@@ -46,15 +50,20 @@ O WebFit foi pensado inicialmente para a matéria de Análise e Projeto de Siste
 
 * Alguns arquivos possuem a tag <style>, pois não estavam diretamente ligados a um arquivo próprio de CSS, mas o layout geral das páginas foi feito em um arquivo separado.
 
-## O Java Script
+## O JavaScript
 
-* Os arquivos JS são destinados a validação dos dados de cadastro e login, afim de assegurar a integridade do banco e a inserção de todos os campos obrigatóriamente.
+* Os arquivos JS são destinados a validação dos dados de formulário de cadastro, login e alterações no perfil, afim de assegurar a integridade do banco e a inserção de todos os campos obrigatoriamente.
+
+## O PHP
+
+* Na pasta de arquivos php encontram-se tanto arquivos para validação de formulários, autenticação em banco de dados, autenticação de usuários, quanto alguns arquivos auxiliares para o funcionamento e apresentação de outras páginas. 
 
 ### Para acessar o site
-  Só é necessário alterar o arquivo 'database_credentials.php' e alterar a senha do banco de dados para a do seu próprio
+  Só é necessário alterar o arquivo 'database_credentials.php' inserindo suas informações de banco de dados
   ```php
   <?php
-  $database_password = ""; (sua senha)
+    $username = ""; (seu usuário)
+    $database_password = ""; (sua senha)
 ?>
   ```
   
