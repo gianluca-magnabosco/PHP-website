@@ -54,8 +54,11 @@ O WebFit foi pensado inicialmente para a matéria de Análise e Projeto de Siste
   Só é necessário alterar o arquivo 'database_credentials.php' e alterar a senha do banco de dados para a do seu próprio
   ```php
   <?php
-
   $database_password = ""; (sua senha)
- 
 ?>
   ```
+  
+  ## Equipe:
+  ### Geovanna Alberti Correia de Freitas GRR20210548
+  ### Guilherme Penna Moro GRR20211633
+  ### Gianluca Notari Magnabosco GRR20211621
