@@ -51,6 +51,9 @@
         }
         
         disconnect_database($conn);
+    } else {
+        $error_msg = "Selecione o dia da semana!";
+        $error = true;
     }
   }
 
@@ -83,7 +86,7 @@
                 <div class="atividades">
                     
                     <a class="abotao" id="segunda" href="?diadasemana=segunda">
-                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") &&  ((isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "segunda"))) || (isset($_COOKIE["diadasemana"]) && ($_COOKIE["diadasemana"] == "segunda"))): ?>
+                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") && ((isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "segunda"))) || (isset($_COOKIE["diadasemana"]) && ($_COOKIE["diadasemana"] == "segunda"))): ?>
                             <?php if (isset($_GET["diadasemana"]) && $_GET["diadasemana"] != "segunda"):?>
                                 <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Segunda">
                             <?php else: ?>
@@ -97,7 +100,7 @@
                     </a>
 
                     <a class="abotao" id="terca" href="?diadasemana=terca">
-                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") &&  ((isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "terca"))) || (isset($_COOKIE["diadasemana"]) && ($_COOKIE["diadasemana"] == "terca"))): ?>
+                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") && ((isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "terca"))) || (isset($_COOKIE["diadasemana"]) && ($_COOKIE["diadasemana"] == "terca"))): ?>
                             <?php if (isset($_GET["diadasemana"]) && $_GET["diadasemana"] != "terca"):?>
                                 <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Terça">
                             <?php else: ?>
@@ -111,7 +114,7 @@
                     </a>
 
                     <a class="abotao" id="quarta" href="?diadasemana=quarta">
-                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") &&  ((isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "quarta"))) || (isset($_COOKIE["diadasemana"]) && ($_COOKIE["diadasemana"] == "quarta"))): ?>
+                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") && ((isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "quarta"))) || (isset($_COOKIE["diadasemana"]) && ($_COOKIE["diadasemana"] == "quarta"))): ?>
                             <?php if (isset($_GET["diadasemana"]) && $_GET["diadasemana"] != "quarta"):?>
                                 <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Quarta">
                             <?php else: ?>
@@ -125,7 +128,7 @@
                     </a>
         
                     <a class="abotao" id="quinta" href="?diadasemana=quinta">
-                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") &&  ((isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "quinta"))) || (isset($_COOKIE["diadasemana"]) && ($_COOKIE["diadasemana"] == "quinta"))): ?>
+                        <?php if (($_SERVER["REQUEST_METHOD"] == "GET") && ((isset($_GET["diadasemana"]) && ($_GET["diadasemana"] == "quinta"))) || (isset($_COOKIE["diadasemana"]) && ($_COOKIE["diadasemana"] == "quinta"))): ?>
                             <?php if (isset($_GET["diadasemana"]) && $_GET["diadasemana"] != "quinta"):?>
                                 <input class="botao" type="button" class="fadeIn fourth" name="dia_da_semana" value="Quinta">
                             <?php else: ?>
