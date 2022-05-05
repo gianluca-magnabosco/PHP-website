@@ -15,17 +15,17 @@ O WebFit foi pensado inicialmente para a matéria de Análise e Projeto de Siste
 
 ## Como o banco de dados funciona
 
-⋅⋅1. Antes de tudo, é necessário fazer um cadastro com nome, CPF, endereço, email e senha.
-⋅⋅2. Após o cadastro é deve-se fazer o login.
-⋅⋅3. Somente assim é possível ter acesso a pagina de usuário, que é onde pode-se adicionar as atividades da semana.
-⋅⋅4. As atividades são armazenadas no banco, e é possível removê-las.
-⋅⋅5. Na tela de perfil é possível visualizar as informações de nome, cpf, email e endereço cadastradas e alterar a senha.
-⋅⋅6. Não é possivel fazer login sem antes ter feito um cadastro, e não é possível acessar o agendamento de atividades sem estar logado.
-⋅⋅7. Se deslogar, o usuário retorna a página de boas vindas aos visitantes.
+⋅⋅ Antes de tudo, é necessário fazer um cadastro com nome, CPF, endereço, email e senha.
+⋅⋅ Após o cadastro é deve-se fazer o login.
+⋅⋅ Somente assim é possível ter acesso a pagina de usuário, que é onde pode-se adicionar as atividades da semana.
+⋅⋅ As atividades são armazenadas no banco, e é possível removê-las.
+⋅⋅ Na tela de perfil é possível visualizar as informações de nome, cpf, email e endereço cadastradas e alterar a senha.
+⋅⋅ Não é possivel fazer login sem antes ter feito um cadastro, e não é possível acessar o agendamento de atividades sem estar logado.
+⋅⋅ Se deslogar, o usuário retorna a página de boas vindas aos visitantes.
 
 ### Informações adicionaais
-⋅⋅* É conferido o CPF para ser válido
-⋅⋅* As senhas não podem ser visualizadas por segurança
+⋅⋅ É conferido o CPF para ser válido
+⋅⋅ As senhas não podem ser visualizadas por segurança
 
 
 
