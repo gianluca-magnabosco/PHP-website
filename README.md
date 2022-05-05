@@ -40,6 +40,22 @@ O WebFit foi pensado inicialmente para a matéria de Análise e Projeto de Siste
 ### Imagem que mostra as atividades semanais de um usuário
 ![image](https://user-images.githubusercontent.com/49680911/166856015-9ff2c19b-f179-4e9d-af5b-e0be064634ef.png)
 
+## O CSS
 
+* Foi utilizado bootstrap 3 para realização do CSS.
 
+* Alguns arquivos possuem a tag <style>, pois não estavam diretamente ligados a um arquivo próprio de CSS, mas o layout geral das páginas foi feito em um arquivo separado.
 
+## O Java Script
+
+* Os arquivos JS são destinados a validação dos dados de cadastro e login, afim de assegurar a integridade do banco e a inserção de todos os campos obrigatóriamente.
+
+### Para acessar o site
+  Só é necessário alterar o arquivo 'database_credentials.php' e alterar a senha do banco de dados para a do seu próprio
+  ```php
+  <?php
+
+  $database_password = ""; (sua senha)
+ 
+?>
+  ```
