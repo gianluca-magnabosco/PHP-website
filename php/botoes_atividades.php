@@ -21,3 +21,6 @@
 <a class="abotao" id="musculacao" href="?atividade=musculacao">
     <input class="botao" type="submit" class="fadeIn fourth" class="musculacao" value="Musculação">
 </a>
+
+
+<?php ?>

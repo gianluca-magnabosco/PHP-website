@@ -7,3 +7,5 @@
         <span class="tab">&emsp;</span>De acordo com o site ClassPass(2021), a procura por academias aumentou 329% em 2021, e as atividades mais procuradas foram treinos de musculação, yoga, spinning e pilates. Em cada feriado como natal, ano novo ou carnaval, novamente a procura por academias aumenta.	Com a procura tão grande por esses estabelecimentos, houve a necessidade de informatizar os sistemas das academias, assim, fazendo com que o acesso e o contato dos profissionais e clientes fosse facilitado à distância. Dessa forma, uma academia com milhares de usuários evitaria grandes filas para o atendimento e lotação das atividades e equipamentos disponibilizados.
     </p>
 </div>
+
+<?php ?>
