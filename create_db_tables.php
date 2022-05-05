@@ -39,7 +39,7 @@
         );";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<br>Table created successfully<br>";
+        echo "<br>Table $table_users created successfully<br>";
     } else {
         echo "<br>Error creating database $table_users: " . mysqli_error($conn);
     }
@@ -55,7 +55,7 @@
         );";
     
     if (mysqli_query($conn, $sql)) {
-        echo "<br>Table created successfully<br>";
+        echo "<br>Table $table_atividades created successfully<br>";
     } else {
         echo "<br>Error creating database $table_atividades: " . mysqli_error($conn);
     }
