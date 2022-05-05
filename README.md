@@ -17,23 +17,29 @@ O WebFit foi pensado inicialmente para a matéria de Análise e Projeto de Siste
 
 * Antes de tudo, é necessário fazer um cadastro com nome, CPF, endereço, email e senha.
 
-⋅⋅ Após o cadastro é deve-se fazer o login.
+* Após o cadastro é deve-se fazer o login.
 
-⋅⋅ Somente assim é possível ter acesso a pagina de usuário, que é onde pode-se adicionar as atividades da semana.
+* Somente assim é possível ter acesso a pagina de usuário, que é onde pode-se adicionar as atividades da semana.
 
-⋅⋅ As atividades são armazenadas no banco, e é possível removê-las.
+* As atividades são armazenadas no banco, e é possível removê-las.
 
-⋅⋅ Na tela de perfil é possível visualizar as informações de nome, cpf, email e endereço cadastradas e alterar a senha.
+* Na tela de perfil é possível visualizar as informações de nome, cpf, email e endereço cadastradas e alterar a senha.
 
-⋅⋅ Não é possivel fazer login sem antes ter feito um cadastro, e não é possível acessar o agendamento de atividades sem estar logado.
+* Não é possivel fazer login sem antes ter feito um cadastro, e não é possível acessar o agendamento de atividades sem estar logado.
 
-⋅⋅ Se deslogar, o usuário retorna a página de boas vindas aos visitantes.
+* Se deslogar, o usuário retorna a página de boas vindas aos visitantes.
 
 ### Informações adicionais
 
-⋅⋅ É conferido o CPF para ser válido
+* É conferido o CPF para ser válido
 
-⋅⋅ As senhas não podem ser visualizadas por segurança
+* As senhas não podem ser visualizadas por segurança
+
+* O relacionamento do banco de dados está entre usuários e atividades semanais
+
+### Imagem que mostra as atividades semanais de um usuário
+![image](https://user-images.githubusercontent.com/49680911/166856015-9ff2c19b-f179-4e9d-af5b-e0be064634ef.png)
+
 
 
 
