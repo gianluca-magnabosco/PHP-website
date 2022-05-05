@@ -11,7 +11,7 @@ O WebFit foi pensado inicialmente para a matéria de Análise e Projeto de Siste
 | img      | Contém todas as imagens     |  
 | js | Contém todos os arquivos JavaScript    |   
 | php | Possui alguns arquivos PHP que não são os principais, apenas conexões com o banco e arquivos auxiliares  | 
-| Arquivos soltos | Principais arquivos do site  | 
+| Arquivos soltos | Principais arquivos do site (Páginas do site, criação do banco de dados e logout)  | 
 
 ## Como o banco de dados funciona
 
