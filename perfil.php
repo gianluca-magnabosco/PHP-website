@@ -15,13 +15,15 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["password"]) && !empty($_POST["password"]) && isset($_POST["confirm_password"]) && !empty($_POST["confirm_password"])) {
       
+      $conn = connect_database();
+
       $password = mysqli_real_escape_string($conn, sanitize($_POST["password"]));
       $confirm_password = mysqli_real_escape_string($conn, sanitize($_POST["confirm_password"]));
 
       $user_id = $_SESSION["user_id"];
       $password = md5($password);
 
-      $conn = connect_database();
+
 
       $sql = "SELECT password FROM Users WHERE id = '$user_id'";
       $resultado = mysqli_fetch_assoc(mysqli_query($conn, $sql));
